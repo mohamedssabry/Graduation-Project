@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { TextInput } from "../../shared/components/atoms";
 
 const Admin = () => {
@@ -30,9 +31,9 @@ const Admin = () => {
           </div>
 
           <div className="flex justify-between items-center mb-6">
-            <span className="text-blue-600 text-sm font-bold ">
+            <Link to={"/auth/update-password"} className="text-blue-600 text-sm font-bold cursor-pointer">
               Forget Password?
-            </span>
+            </Link>
 
             <button
               type="submit"

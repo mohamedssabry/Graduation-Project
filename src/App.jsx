@@ -4,7 +4,9 @@ import Admin from "./modules/Auth/Admin";
 import Login from "./modules/Auth/Login";
 import Register from "./modules/Auth/Register";
 import AuthLayout from "./modules/shared/components/template/AuthLayout";
-import { Outlet } from "react-router-dom";
+import UpdatePassword from "./modules/Auth/UpdatePassword";
+import NewPassword from "./modules/Auth/NewPassword";
+import VerificationCode from "./modules/Auth/OtpCode";
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
           <Route index element={<Login />} /> {/* Default route for /auth */}
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Register />} />
-          <Route path="update-password" element={<div>update password</div>} />
+          <Route path="update-password" element={<UpdatePassword />} />
+          <Route path="new-password" element={<NewPassword />} />
+          <Route path="verify-otp" element={<VerificationCode />} />
         </Route>
       </Routes>
     </BrowserRouter>
