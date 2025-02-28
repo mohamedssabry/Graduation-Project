@@ -1,4 +1,4 @@
-import { TextInput } from "../shared/components/atoms";
+import { TextInput } from "../../shared/components/atoms";
 
 const Admin = () => {
   return (
@@ -30,13 +30,13 @@ const Admin = () => {
           </div>
 
           <div className="flex justify-between items-center mb-6">
-            <span className="text-blue-600 text-sm font-bold">
+            <span className="text-blue-600 text-sm font-bold ">
               Forget Password?
             </span>
 
             <button
               type="submit"
-              className="w-1/3 bg-blue-600 text-white py-2 rounded-3xl transition duration-300"
+              className="w-1/3 cursor-pointer bg-blue-600 text-white py-2 rounded-3xl transition duration-300"
             >
               Login
             </button>

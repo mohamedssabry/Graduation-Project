@@ -12,14 +12,14 @@ const TextInput = ({
 }) => {
   return (
     <div className={`${className}`}>
-      {label && <label className="block text-2xl mb-2">{label}</label>}
+      {label && <label className="block text-xl mb-2">{label}</label>}
       <input
         type={type}
         name={name}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full px-3 py-3 border-[3px] rounded-xl focus:outline-none  ${
+        className={`w-full px-3 py-3 border-2 rounded-xl focus:outline-none  ${
           error ? "border-red-500" : "border-gray-300"
         }`}
       />
