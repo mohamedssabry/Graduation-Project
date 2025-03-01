@@ -7,7 +7,6 @@ const TextInput = ({
   value,
   onChange,
   placeholder,
-  error,
   className = "",
 }) => {
   return (
@@ -19,11 +18,9 @@ const TextInput = ({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full px-3 py-3 border-2 rounded-xl focus:outline-none  ${
-          error ? "border-red-500" : "border-gray-300"
-        }`}
+        className={`w-full px-3 py-3 border-2 rounded-xl focus:outline-none border-gray-300
+        `}
       />
-      {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
     </div>
   );
 };

@@ -1,13 +1,37 @@
 import { useState } from "react";
 import { TextInput } from "../../shared/components/atoms";
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
+const validationSchema = Yup.object({
+  username: Yup.string().required("Username is required"),
+  password: Yup.string()
+    .min(6, "Password must be at least 8 characters")
+    .required("Password is required"),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Passwords must match")
+    .required("Confirm Password is required"),
+});
 
 const Register = () => {
   const [selectedRole, setSelectedRole] = useState("student");
 
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
+      confirmPassword: "",
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      console.log("Form Submitted", values);
+    },
+  });
+
   return (
     <div>
-      <form>
+      <form onSubmit={formik.handleSubmit}>
         {/* Username Field */}
         <div className="mb-4">
           <TextInput
@@ -15,8 +39,13 @@ const Register = () => {
             type="text"
             className="w-full"
             name="username"
-            onChange={(e) => e.target.value}
+            value={formik.values.username}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.username && formik.errors.username && (
+            <div className="text-red-500 text-sm">{formik.errors.username}</div>
+          )}
         </div>
 
         {/* Password Field */}
@@ -26,8 +55,13 @@ const Register = () => {
             type="password"
             className="w-full"
             name="password"
-            onChange={(e) => e.target.value}
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.password && formik.errors.password && (
+            <div className="text-red-500 text-sm">{formik.errors.password}</div>
+          )}
         </div>
 
         {/* Confirm Password Field */}
@@ -37,8 +71,15 @@ const Register = () => {
             type="password"
             className="w-full"
             name="confirmPassword"
-            onChange={(e) => e.target.value}
+            value={formik.values.confirmPassword}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.confirmPassword && formik.errors.confirmPassword && (
+            <div className="text-red-500 text-sm">
+              {formik.errors.confirmPassword}
+            </div>
+          )}
         </div>
 
         {/* Role Selection (Student/Doctor) */}
