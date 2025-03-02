@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Admin from "./modules/Auth/Admin";
 import Login from "./modules/Auth/Login";
 import Register from "./modules/Auth/Register";
