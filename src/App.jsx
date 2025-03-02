@@ -6,6 +6,7 @@ import AuthLayout from "./modules/shared/components/template/AuthLayout";
 import UpdatePassword from "./modules/Auth/UpdatePassword";
 import NewPassword from "./modules/Auth/NewPassword";
 import VerificationCode from "./modules/Auth/OtpCode";
+import GenerateForm from "./modules/GenerateForm";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="new-password" element={<NewPassword />} />
           <Route path="verify-otp" element={<VerificationCode />} />
         </Route>
+        <Route path="generate-table" element={<GenerateForm />} />
       </Routes>
     </BrowserRouter>
   );
