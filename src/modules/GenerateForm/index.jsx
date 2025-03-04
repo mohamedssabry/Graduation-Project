@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { TextInput } from "../shared/components/atoms";
 import iconimg from "../../assets/imgs/iconimg.svg";
 
 const GenerateForm = () => {
+  const [materials, setMaterials] = useState([{ id: Date.now() }]);
+  const [halls, setHalls] = useState([{ id: Date.now() }]);
+
+  const addMaterial = () => {
+    setMaterials([...materials, { id: Date.now() }]);
+  };
+
+  const removeMaterial = (id) => {
+    setMaterials(materials.filter((material) => material.id !== id));
+  };
+
+  const addHall = () => {
+    setHalls([...halls, { id: Date.now() }]);
+  };
+
+  const removeHall = (id) => {
+    setHalls(halls.filter((hall) => hall.id !== id));
+  };
+
   return (
     <div className="flex items-center justify-center py-10 bg-gradient-to-r from-blue-200 to-white">
       <div className="bg-white p-12 rounded-3xl shadow-lg w-2/4">
@@ -73,75 +92,96 @@ const GenerateForm = () => {
             </div>
           </div>
 
-          <div className="mb-4">
-            <TextInput
-              label="Scientific material data"
-              placeholder="Material name"
-              type="text"
-              name="materialName"
-              className="w-full"
-              onChange={() => {}}
-            />
-            <div className="flex justify-between gap-4 pt-3">
+          {materials.map((material) => (
+            <div key={material.id} className="mb-4">
               <TextInput
-                placeholder="Lecture time"
+                label="Scientific material data"
+                placeholder="Material name"
                 type="text"
-                name="lectureTime"
+                name="materialName"
                 className="w-full"
                 onChange={() => {}}
               />
-              <TextInput
-                placeholder="Doctor's name"
-                type="text"
-                name="doctorName"
-                className="w-full"
-                onChange={() => {}}
-              />
-            </div>
-            <div className="flex justify-between pt-2">
-              <div className="flex items-center justify-center ">
-                <span className="text-blue-500 text-sm">
-                  Does the material have a section?
-                </span>
-                <input type="checkbox" className="ml-2 mt-1 border-gray-300 " />
+              <div className="flex justify-between gap-4 pt-3">
+                <TextInput
+                  placeholder="Lecture time"
+                  type="text"
+                  name="lectureTime"
+                  className="w-full"
+                  onChange={() => {}}
+                />
+                <TextInput
+                  placeholder="Doctor's name"
+                  type="text"
+                  name="doctorName"
+                  className="w-full"
+                  onChange={() => {}}
+                />
               </div>
-              <span className="text-gray-500 text-sm cursor-pointer ">
+              <div className="flex justify-between pt-2">
+                <div className="flex items-center justify-center ">
+                  <span className="text-blue-500 text-sm">
+                    Does the material have a section?
+                  </span>
+                  <input
+                    type="checkbox"
+                    className="ml-2 mt-1 border-gray-300 "
+                  />
+                </div>
+                <span
+                  className="text-gray-500 text-sm cursor-pointer"
+                  onClick={() => removeMaterial(material.id)}
+                >
+                  Delete
+                </span>
+              </div>
+            </div>
+          ))}
+          <div className="mt-2 flex justify-center">
+            <button
+              type="button"
+              className="bg-blue-500  text-white font-black rounded-xl  flex items-center justify-center w-1/10 cursor-pointer"
+              onClick={addMaterial}
+            >
+              <span className="text-3xl">+</span>
+            </button>
+          </div>
+
+          {halls.map((hall) => (
+            <div key={hall.id} className="mb-4">
+              <p className="block text-xl mb-2">Lecture hall data</p>
+              <div className="flex justify-between gap-4">
+                <TextInput
+                  placeholder="Hall name"
+                  type="text"
+                  name="hallName"
+                  className="w-full"
+                  onChange={() => {}}
+                />
+                <TextInput
+                  placeholder="Hall capacity"
+                  type="text"
+                  name="hallCapacity"
+                  className="w-full"
+                  onChange={() => {}}
+                />
+              </div>
+              <span
+                className="text-gray-500 text-sm cursor-pointer flex justify-end pt-2"
+                onClick={() => removeHall(hall.id)}
+              >
                 Delete
               </span>
             </div>
-            <div className=" mt-2 flex justify-center ">
-              <button className="bg-blue-500  text-white font-black rounded-xl  flex items-center justify-center w-1/10 cursor-pointer">
-                <span className="text-3xl">+</span>
-              </button>
-            </div>
-          </div>
-
-          <div className="mb-4">
-            <p className="block text-xl mb-2">Lecture hall data</p>
-            <div className="flex justify-between gap-4">
-              <TextInput
-                placeholder="Hall name"
-                type="text"
-                name="hallName"
-                className="w-full"
-                onChange={() => {}}
-              />
-              <TextInput
-                placeholder="Hall capacity"
-                type="text"
-                name="hallCapacity"
-                className="w-full"
-                onChange={() => {}}
-              />
-            </div>
-            <span className="text-gray-500 text-sm cursor-pointer flex justify-end pt-2">
-              Delete
-            </span>
-            <div className=" mt-2 flex justify-center ">
-              <button className="bg-blue-500  text-white font-black rounded-xl  flex items-center justify-center w-1/10 cursor-pointer">
-                <span className="text-3xl">+</span>
-              </button>
-            </div>
+          ))}
+          <div className=" flex justify-center mb-5">
+            <button
+              type="button"
+              className="bg-blue-500  text-white font-black rounded-xl  flex items-center justify-center w-1/10 cursor-pointer"
+              onClick={addHall}
+            >
+              <span className="text-3xl">+</span>
+            </button>
           </div>
 
           <div className="mb-4">
