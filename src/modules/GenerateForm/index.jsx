@@ -5,6 +5,8 @@ import iconimg from "../../assets/imgs/iconimg.svg";
 const GenerateForm = () => {
   const [materials, setMaterials] = useState([{ id: Date.now() }]);
   const [halls, setHalls] = useState([{ id: Date.now() }]);
+  const [section, setSection] = useState([{ id: Date.now() }]);
+  const [laboratory, setLaboratory] = useState([{ id: Date.now() }]);
 
   const addMaterial = () => {
     setMaterials([...materials, { id: Date.now() }]);
@@ -20,6 +22,22 @@ const GenerateForm = () => {
 
   const removeHall = (id) => {
     setHalls(halls.filter((hall) => hall.id !== id));
+  };
+
+  const addSection = () => {
+    setSection([...section, { id: Date.now() }]);
+  };
+
+  const removeSection = (id) => {
+    setSection(section.filter((section) => section.id !== id));
+  };
+
+  const addLaboratory = () => {
+    setLaboratory([...laboratory, { id: Date.now() }]);
+  };
+
+  const removeLaboratory = (id) => {
+    setLaboratory(laboratory.filter((laboratory) => laboratory.id !== id));
   };
 
   return (
@@ -129,7 +147,7 @@ const GenerateForm = () => {
                   />
                 </div>
                 <span
-                  className="text-gray-500 text-sm cursor-pointer"
+                  className="text-gray-500 text-sm cursor-pointer hover:text-blue-700"
                   onClick={() => removeMaterial(material.id)}
                 >
                   Delete
@@ -167,18 +185,92 @@ const GenerateForm = () => {
                 />
               </div>
               <span
-                className="text-gray-500 text-sm cursor-pointer flex justify-end pt-2"
+                className="text-gray-500 text-sm cursor-pointer flex justify-end pt-2 hover:text-blue-700"
                 onClick={() => removeHall(hall.id)}
               >
                 Delete
               </span>
             </div>
           ))}
-          <div className=" flex justify-center mb-5">
+          <div className=" flex justify-center mt-3">
             <button
               type="button"
               className="bg-blue-500  text-white font-black rounded-xl  flex items-center justify-center w-1/10 cursor-pointer"
               onClick={addHall}
+            >
+              <span className="text-3xl">+</span>
+            </button>
+          </div>
+
+          {section.map((section) => (
+            <div key={section.id} className="mb-4">
+              <p className="block text-xl mb-2">Section data</p>
+              <div className="flex justify-between gap-4">
+                <TextInput
+                  placeholder="Section name"
+                  type="text"
+                  name="sectionName"
+                  className="w-full"
+                  onChange={() => {}}
+                />
+                <TextInput
+                  placeholder="Section capacity"
+                  type="text"
+                  name="sectionCapacity"
+                  className="w-full"
+                  onChange={() => {}}
+                />
+              </div>
+              <span
+                className="text-gray-500 text-sm cursor-pointer flex justify-end pt-2 hover:text-blue-700"
+                onClick={() => removeSection(section.id)}
+              >
+                Delete
+              </span>
+            </div>
+          ))}
+          <div className=" flex justify-center mt-3">
+            <button
+              type="button"
+              className="bg-blue-500  text-white font-black rounded-xl  flex items-center justify-center w-1/10 cursor-pointer"
+              onClick={addSection}
+            >
+              <span className="text-3xl">+</span>
+            </button>
+          </div>
+
+          {laboratory.map((laboratory) => (
+            <div key={laboratory.id} className="mb-4">
+              <p className="block text-xl mb-2">Laboratory data</p>
+              <div className="flex justify-between gap-4">
+                <TextInput
+                  placeholder="Laboratory name"
+                  type="text"
+                  name="laboratoryName"
+                  className="w-full"
+                  onChange={() => {}}
+                />
+                <TextInput
+                  placeholder="Laboratory capacity"
+                  type="text"
+                  name="laboratoryCapacity"
+                  className="w-full"
+                  onChange={() => {}}
+                />
+              </div>
+              <span
+                className="text-gray-500 text-sm cursor-pointer flex justify-end pt-2 hover:text-blue-700"
+                onClick={() => removeLaboratory(laboratory.id)}
+              >
+                Delete
+              </span>
+            </div>
+          ))}
+          <div className=" flex justify-center mb-5 mt-3">
+            <button
+              type="button"
+              className="bg-blue-500  text-white font-black rounded-xl  flex items-center justify-center w-1/10 cursor-pointer"
+              onClick={addLaboratory}
             >
               <span className="text-3xl">+</span>
             </button>
