@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Admin />} />
 
         {/* Authentication Routes */}
-        <Route path="/auth" element={<AuthLayout />}>
+        <Route path="/auth" element={<AuthLayout />}> 
           <Route index element={<Login />} /> {/* Default route for /auth */}
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Register />} />
