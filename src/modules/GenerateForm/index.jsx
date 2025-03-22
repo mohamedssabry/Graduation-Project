@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { TextInput } from "../shared/components/atoms";
-import iconimg from "../../assets/imgs/iconimg.svg";
 
 const GenerateForm = () => {
   const [materials, setMaterials] = useState([{ id: Date.now() }]);
@@ -324,7 +323,7 @@ const GenerateForm = () => {
               className="bg-blue-500 text-white rounded-lg px-4 py-2 w-full text-2xl flex justify-center gap-2 cursor-pointer"
             >
               Generate
-              <img src={iconimg} alt="" width={20} />
+              <img src="/assets/iconimg.svg" alt="" width={20} />
             </button>
           </div>
         </form>
