@@ -7,7 +7,7 @@ const Navbar = () => {
         <img
           src="/assets/tables-logo.svg"
           alt="Tables Logo"
-          className="w-8 h-8 mr-2"
+          className="w-10 h-10 mr-2"
         />
         <h1 className="text-blue-500 font-bold text-2xl">Tables</h1>
       </div>
