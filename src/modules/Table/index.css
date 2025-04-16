@@ -1,0 +1,6 @@
+.writing-vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+  min-height: 150px;
+}

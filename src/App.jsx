@@ -8,10 +8,12 @@ import NewPassword from "./modules/Auth/NewPassword";
 import VerificationCode from "./modules/Auth/OtpCode";
 import GenerateForm from "./modules/GenerateForm";
 import PageLayout from "./modules/shared/components/template/PageLayout";
+import EditTable from "./modules/EditTable";
+import ScheduleTable from "./modules/Table";
 
-const EditInputs = () => <h2>Edit Inputs Page</h2>;
-const EditTable = () => <h2>Edit Table Page</h2>;
-const Home = () => <h2>Home Page</h2>;
+// const EditInputs = () => <h2>Edit Inputs Page</h2>;
+// const EditTable = () => <h2>Edit Table Page</h2>;
+// const Home = () => <h2>Home Page</h2>;
 
 function App() {
   return (
@@ -32,8 +34,8 @@ function App() {
 
         {/* Table Routes */}
         <Route path="/table" element={<PageLayout />}>
-          <Route index element={<Home />} /> {/* Default route for /table */}
-          <Route path="edit-inputs" element={<EditInputs />} />
+          <Route index element={<ScheduleTable />} /> {/* Default route for /table */}
+          <Route path="edit-inputs" element={<GenerateForm />} />
           <Route path="new-table" element={<GenerateForm />} />
           <Route path="edit-table" element={<EditTable />} />
         </Route>
