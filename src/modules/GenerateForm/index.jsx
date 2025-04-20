@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TextInput } from "../shared/components/atoms";
+import ActionButton from "../shared/components/atoms/ActionButton";
 
 const GenerateForm = () => {
   const [materials, setMaterials] = useState([{ id: Date.now() }]);
@@ -154,14 +155,12 @@ const GenerateForm = () => {
               </div>
             </div>
           ))}
-          <div className="mt-2 flex justify-center">
-            <button
-              type="button"
-              className="bg-blue-500  text-white font-black rounded-xl  flex items-center justify-center w-1/10 cursor-pointer"
+          <div className="mt-2 mx-auto w-1/10">
+            <ActionButton
+              label="+"
+              classNames={"text-3xl font-semibold py-1"}
               onClick={addMaterial}
-            >
-              <span className="text-3xl">+</span>
-            </button>
+            />
           </div>
 
           {halls.map((hall) => (
@@ -191,14 +190,12 @@ const GenerateForm = () => {
               </span>
             </div>
           ))}
-          <div className=" flex justify-center mt-3">
-            <button
-              type="button"
-              className="bg-blue-500  text-white font-black rounded-xl  flex items-center justify-center w-1/10 cursor-pointer"
+          <div className="mt-2 mx-auto w-1/10">
+            <ActionButton
+              label="+"
+              classNames={"text-3xl font-semibold py-1"}
               onClick={addHall}
-            >
-              <span className="text-3xl">+</span>
-            </button>
+            />
           </div>
 
           {section.map((section) => (
@@ -228,14 +225,12 @@ const GenerateForm = () => {
               </span>
             </div>
           ))}
-          <div className=" flex justify-center mt-3">
-            <button
-              type="button"
-              className="bg-blue-500  text-white font-black rounded-xl  flex items-center justify-center w-1/10 cursor-pointer"
+          <div className="mt-2 mx-auto w-1/10">
+            <ActionButton
+              label="+"
+              classNames={"text-3xl font-semibold py-1"}
               onClick={addSection}
-            >
-              <span className="text-3xl">+</span>
-            </button>
+            />
           </div>
 
           {laboratory.map((laboratory) => (
@@ -265,14 +260,12 @@ const GenerateForm = () => {
               </span>
             </div>
           ))}
-          <div className=" flex justify-center mb-5 mt-3">
-            <button
-              type="button"
-              className="bg-blue-500  text-white font-black rounded-xl  flex items-center justify-center w-1/10 cursor-pointer"
+          <div className="mt-2 mb-5 mx-auto w-1/10">
+            <ActionButton
+              label="+"
+              classNames={"text-3xl font-semibold py-1"}
               onClick={addLaboratory}
-            >
-              <span className="text-3xl">+</span>
-            </button>
+            />
           </div>
 
           <div className="mb-4">
@@ -318,13 +311,7 @@ const GenerateForm = () => {
           </div>
 
           <div className="mt-6">
-            <button
-              type="submit"
-              className="bg-blue-500 text-white rounded-lg px-4 py-2 w-full text-2xl flex justify-center gap-2 cursor-pointer"
-            >
-              Generate
-              <img src="/assets/iconimg.svg" alt="" width={20} />
-            </button>
+            <ActionButton label="Generate" iconSrc={"/assets/iconimg.svg"} />
           </div>
         </form>
       </div>

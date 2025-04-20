@@ -1,6 +1,7 @@
 import React from "react";
 import GroupOne from "./GroupOne";
 import GroupTwo from "./GroupTwo";
+import ActionButton from "../shared/components/atoms/ActionButton";
 
 function ScheduleTable() {
   return (
@@ -11,18 +12,12 @@ function ScheduleTable() {
       <div className="">
         <GroupTwo />
       </div>
-      <div className="flex justify-between gap-50 p-5">
+      <div className="flex justify-between gap-10 p-5">
         <div className="mt-6 w-1/2">
-          <button className="bg-blue-500 text-white rounded-lg px-4 py-2 w-full text-2xl flex justify-center gap-2 cursor-pointer">
-            Print
-            <img src="/assets/printicon.svg" alt="" width={25} />
-          </button>
+          <ActionButton label="Print" iconSrc="/assets/printicon.svg" />
         </div>
         <div className="mt-6 w-1/2">
-          <button className="bg-blue-500 text-white rounded-lg px-4 py-2 w-full text-2xl flex justify-center gap-2 cursor-pointer">
-            Download
-            <img src="/assets/downloadicon.svg" alt="" width={23} />
-          </button>
+          <ActionButton label="Download" iconSrc="/assets/downloadicon.svg" />
         </div>
       </div>
     </div>
