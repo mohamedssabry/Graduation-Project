@@ -12,6 +12,7 @@ import EditTable from "./modules/EditTable";
 import ScheduleTable from "./modules/Table";
 import DoctorTable from "./modules/Table/DoctorTable";
 import AssistantTable from "./modules/Table/AssistantTable";
+import Generation from "./modules/Generation";
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
           <Route index element={<ScheduleTable />} />
           {/* Default route for /table */}
           <Route path="edit-inputs" element={<GenerateForm />} />
-          <Route path="new-table" element={<GenerateForm />} />
+          <Route path="new-table" element={<Generation />} />
           <Route path="edit-table" element={<EditTable />} />
           <Route path="teaching-assistant" element={<AssistantTable />} />
           <Route path="doctor" element={<DoctorTable />} />
